@@ -22,8 +22,9 @@ class Demand
     #[ORM\OneToOne(inversedBy: 'demand', cascade: ['persist', 'remove'])]
     private ?Voter $voter = null;
 
-    /* #[ORM\OneToOne(mappedBy: 'demeand', cascade: ['persist', 'remove'])]
-    private ?Candidate $candidate = null; */
+    #[ORM\OneToOne(mappedBy: 'demeand', cascade: ['persist', 'remove'])]
+    
+    private ?Candidate $candidate = null;  
 
     #[ORM\Column(length: 255)]
     private ?string $email = null;
@@ -75,7 +76,7 @@ class Demand
         return $this;
     }
 
-  /*   public function getCandidate(): ?Candidate
+     public function getCandidate(): ?Candidate
     {
         return $this->candidate;
     }
@@ -90,7 +91,7 @@ class Demand
         $this->candidate = $candidate;
 
         return $this;
-    } */
+    } 
 
     public function getEmail(): ?string
     {

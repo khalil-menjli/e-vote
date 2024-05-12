@@ -1,20 +1,78 @@
 {% extends 'base.html.twig' %}
-
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
 {% block title %}Hello DemandController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+<style>.login {
+  min-height: 100vh;
+}
+
+.bg-image {
+  background-image: url('https://source.unsplash.com/WEQbe2jBg40/600x1200');
+  background-size: cover;
+  background-position: center;
+}
+
+.login-heading {
+  font-weight: 300;
+}
+
+.btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+}
 </style>
+    <div class="container-fluid ps-md-0">
+    <div class="row g-0">
+        <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+        <div class="col-md-8 col-lg-6">
+        <div class="login d-flex align-items-center py-5">
+            <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-lg-9 mx-auto">
+                <h3 class="login-heading mb-4">Welcome !</h3>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+                <!-- Sign In Form -->
+                <form action="{{ path('send_demand') }}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                    {{ form_start(form) }}
+                    <div class="form-group">
+                    {{ form_label(form.email, 'Email', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.email) }}
+                    </div>
+                    <div class="form-group">
+                    {{ form_label(form.password, 'Password', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.password, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.password) }}
+                    </div>
+                    <div class="form-group">
+                    {{ form_label(form.programme, 'Programme', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.programme, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.programme) }}
+                    </div>
+                    <div class="form-group">
+                    {{ form_label(form.phone, 'Phone', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.phone, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.phone) }}
+                    </div>
+                    <div class="form-group">
+                    {{ form_label(form.image, 'Image', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.image) }}
+                    </div>
+                    <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-lg btn-danger btn-login text-uppercase fw-bold mb-2">Submit</button>
+                    <button type="button" class="btn btn-lg btn-secondary btn-login text-uppercase fw-bold mb-2">Cancel</button>
+                    </div>
+                    {{ form_end(form) }}
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/symfony6/evote/src/Controller/DemandController.php</code></li>
-        <li>Your template at <code>C:/symfony6/evote/templates/demand/index.html.twig</code></li>
-    </ul>
-</div>
 {% endblock %}
