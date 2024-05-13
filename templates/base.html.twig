@@ -1,19 +1,57 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        {% block stylesheets %}
-        {% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href={{ asset('plugins/fontawesome-free/css/all.min.css') }}>
+    <!-- Ionicons -->
+    <link rel="stylesheet" href={{ asset('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')}}>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href={{ asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}>
+    <!-- iCheck -->
+    <link rel="stylesheet" href={{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}>
+    <!-- JQVMap -->
+    <link rel="stylesheet" href={{ asset('plugins/jqvmap/jqvmap.min.css') }}>
+    <!-- Theme style -->
+    <link rel="stylesheet" href={{ asset('dist/css/adminlte.min.css') }}>
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href={{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}>
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href={{ asset('plugins/daterangepicker/daterangepicker.css') }}>
+    <!-- summernote -->
+    <link rel="stylesheet" href={{ asset('plugins/summernote/summernote-bs4.min.css') }}>
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+<body>
+{% block body %}
+
+{% endblock %}
+<script src={{ asset('plugins/jquery/jquery.min.js') }}></script>
+<script src={{ asset('plugins/jquery-ui/jquery-ui.min.js') }}></script>
+<script src={{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}></script>
+<script src={{ asset('plugins/chart.js/Chart.min.js') }}></script>
+<script src={{ asset('plugins/sparklines/sparkline.js') }}></script>
+<script src={{ asset('plugins/jqvmap/jquery.vmap.min.js') }}></script>
+<script src={{ asset('plugins/jqvmap/maps/jquery.vmap.usa.js') }}></script>
+<script src={{ asset('plugins/jquery-knob/jquery.knob.min.js') }}></script>
+<script src={{ asset('plugins/moment/moment.min.js') }}></script>
+<script src={{ asset('plugins/daterangepicker/daterangepicker.js') }}></script>
+<script src={{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}></script>
+<script src={{ asset('plugins/summernote/summernote-bs4.min.js') }}></script>
+<script src={{ asset('dist/js/adminlte.js') }}></script>
+<script src={{ asset('dist/js/pages/dashboard.js') }}></script>
+<script src={{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}></script>
+</body>
 </html>
